@@ -74,6 +74,54 @@ OpenRefine is a powerful, free, and open source tool with a large growing commun
 
 You can find out a lot more about OpenRefine at the official user manual [docs.openrefine.org](https://docs.openrefine.org/). There is a [user forum](https://forum.openrefine.org) that can answer a lot of beginner questions and problems. [Recipes](https://github.com/OpenRefine/OpenRefine/wiki/Recipes), scripts, projects, and extensions are available to add functionality to OpenRefine. These can be copied into your OpenRefine instance to run on your dataset.
 
+## Optional: Using the AI extension with OpenRefine
+
+Some parts of this lesson include optional activities using an experimental **AI extension for OpenRefine**.  
+This extension allows you to use a large language model (LLM) to help generate new columns based on existing data (for example, extracting standardised values).
+
+You do **not** need to use the AI extension to complete the core OpenRefine lesson.  
+If you choose to use it, the following sections explain what it is and how to set it up.
+
+### What is an LLM provider?
+
+The AI extension does not contain an AI model itself. Instead, it connects to an external **LLM provider**.
+
+An LLM (Large Language Model) is a type of software that can generate text based on patterns learned from data. Examples include models accessed through:
+
+- Online services (e.g. commercial APIs)
+- Locally running models (e.g. via tools such as Ollama or LM Studio)
+
+An **LLM provider** is simply the configuration that tells OpenRefine:
+- Which model to use
+- Where the model is running (URL / endpoint)
+- How to authenticate (API key, if required)
+
+Different workshops may use different providers depending on availability, cost, or institutional policy. Your instructor will tell you which provider to use for your session.
+
+### Installing the AI extension
+
+To install the AI extension for OpenRefine:
+
+1. In OpenRefine, go to **Extensions**.
+2. Click **Open Extensions directory**. This opens a file explorer showing a folder called `extensions`.
+3. Download **AI Extension for OpenRefine version 0.1.2.3**  (file name: `openrefine-llm-extension-0.1.2.zip`).
+4. Extract the zip file into the `extensions` folder. After extraction, you should see a folder named: `llm-extension`.
+5. Stop OpenRefine by **closing its window** (not just the browser tab).
+6. Relaunch OpenRefine and wait for it to open in your browser.
+7. Go to **Extensions** again. You should now see: `llm-extension` with **Bundled** set to `false`
+
+If the extension does not appear, check that the folder name is exactly `llm-extension` and that it is directly inside the `extensions` directory.
+
+### Installing Ollama (local LLM provider)
+
+...
+
+**Important:**  
+- The AI extension sends your data to the configured provider.  
+- You should only use providers that are appropriate for your data and comply with your institutional or project data policies.
+
+
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - OpenRefine is a powerful, free and open source tool that can be used for data cleaning.
