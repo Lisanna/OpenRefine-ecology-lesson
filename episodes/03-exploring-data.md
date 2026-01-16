@@ -165,4 +165,67 @@ Full documentation on faceting can be found at [Exploring facets: Faceting](http
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+#### Asking AI to inspect a column
+
+So far, you have used facets to explore patterns and inconsistencies in your data.
+OpenRefine’s AI extension can also suggest potential issues, but its output should always be interpreted critically.
+
+In this exercise, you will compare your own observations with the AI assistant’s suggestions.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise
+
+Choose a column that contains messy or inconsistent values.
+Good candidates include columns such as:
+- country
+- locality
+- scientificName
+- collector
+- or another text-heavy column in your dataset.
+
+1. Create a Text Facet on your chosen column.
+2. Spend one or two minutes examining the values:
+   - What inconsistencies do you see?
+   - Are there spelling variations?
+   - Differences in capitalization?
+   - Abbreviations?
+   - Values that seem ambiguous or unclear?
+3. Now open the AI extension for the same column and enter a prompt such as: "Look at the values in this column. What data quality issues or inconsistencies do you notice?"
+4. Read the AI’s response carefully.
+
+Discuss with a partner (or reflect individually):
+- Which issues did you already notice on your own?
+- Did the AI identify any issues you had missed?
+- Did the AI suggest problems that you are unsure about or disagree with?
+- Did the AI seem confident even when its suggestions were questionable?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  solution
+
+## Solution
+
+Your exact results will vary depending on the column and dataset you used.
+However, learners commonly observe patterns like these below.
+
+The AI often correctly identifies:
+- Inconsistent capitalization (e.g. Brazil vs brazil)
+- Extra whitespace
+- Abbreviations vs full forms (e.g. USA vs United States)
+- Obvious spelling differences
+
+The AI may miss:
+- Domain-specific issues (e.g. outdated species names)
+- Subtle ecological or geographic problems
+- Local naming conventions
+
+The AI sometimes suggests issues that are:
+- Overly generic (“some values may be incorrect”)
+- Overconfident but not verifiable
+- Based on incorrect assumptions about what values “should” look like
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
