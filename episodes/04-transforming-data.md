@@ -256,6 +256,8 @@ This comparison highlights an important difference between the two approaches:
 
 In practice, AI-generated columns should always be treated as **proposed transformations** that must be validated using OpenRefine’s exploration tools (facets, filters, manual inspection), rather than as authoritative corrections.
 
+:::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
