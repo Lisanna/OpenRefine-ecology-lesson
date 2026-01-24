@@ -94,6 +94,8 @@ Common issues to watch for:
 
 A practical workflow is to treat the LLM output as a *first draft* and then edit it yourself.
 
+:::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
