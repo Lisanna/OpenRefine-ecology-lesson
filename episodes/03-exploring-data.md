@@ -159,6 +159,73 @@ Full documentation on faceting can be found at [Exploring facets: Faceting](http
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Using AI to extract a standardised column
+
+You have used facets to explore inconsistencies in a column.  
+We can also use the AI extension to *propose* a cleaned version of the data by creating a new column, and then use OpenRefine’s tools to evaluate the results. AI output should always be **checked and validated**, just like any other automated transformation.
+
+This is the first time that you use an AI model in this lesson, so you will need to specify the LLM provider. Go to `AI` > `Manage LLM Providers` (top right). You will need to further click on `Add LLM Provider`.
+**Only for the course that we are running in Spain and Germany in February 2026**, you can fill the next window as follows:
+- Label: `DTC2026`
+- Server URL: `https://dtc26-01-llm.embl.de/v1/chat/completions`
+- Model: `openai/gpt-oss-120b`
+- API Key: `dtc-2026-barcelona-heidelberg-carpentry`
+- Max tokens: `256`
+
+Leave the rest of the fields empty / as default. 
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise
+
+In this exercise, you will use the AI extension to create a new column containing standardised country names, then evaluate the results.
+
+1. Locate the `country` column containing country names. Please note! There are two columns named `country` in this file at the moment. 
+2. Open the column drop-down menu and choose **Extract using AI**.
+3. Configure the extraction:
+  - Column: select `Add new` to avoid overwriting the existing one, in the box below name the new column `AI-interpret-country`
+  - LLM Provider: `DTC2026`
+  - Response format: `Text`
+  - Describe what needs to be done: `Convert this value to a standard country name in English (for example: "United States", "Brazil", "South Africa"). If the value is ambiguous, not a country, or you are not confident, return "Unknown". Return only the country name, with no extra text.`
+4. You can preview the response with `Generate Preview` before generating the full column with `OK`.
+5. Inspect the generated column and discuss with peers or write down your thoughts about the LLM's output. 
+
+:::::::::::::::  solution
+
+## Solution
+
+To evaluate the results, you can:
+1. Use a **Text Facet** on `AI-interpret-country` to inspect unique values.
+2. Filter for blank values and compare them to the original `country` column.
+3. Decide whether to:
+  - Refine the AI instruction and try again, or
+  - Correct remaining issues using standard OpenRefine tools (facets, clustering, manual edits).
+
+Common patterns are:
+
+**Often works well**
+- Minor spelling differences
+- Capitalisation differences
+- Clear country names written in full
+
+**Often produces blank values (sometimes appropriately)**
+- Non-country values (e.g. site codes, locality descriptions)
+- Highly ambiguous values
+
+**The way it could fail**
+- Overconfident guesses for ambiguous values 
+- Inconsistent handling of abbreviations 
+- Occasional incorrect mappings that sound plausible
+
+In this case, we could observe that:
+- The different values `UNITED STATES`, `United States of America` and `US` were all interpreted into `United States`. Do you think that `United States of America` would be a better fit? Try changing the example you inputted in the prompt to the LLM (field: Describe what needs to be done). 
+- The two letters code `HT` was interpreted into `Haiti`.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Faceting can identify errors or outliers in data

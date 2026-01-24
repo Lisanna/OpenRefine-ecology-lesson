@@ -112,9 +112,9 @@ To install the AI extension for OpenRefine:
 
 If the extension does not appear, check that the folder name is exactly `llm-extension` and that it is directly inside the `extensions` directory.
 
-### Installing Ollama (local LLM provider)
+### Manage LLM providers
 
-...
+You will need to select one LLM provider. To do so, once opened a project (do it later), you will see an `AI` dropdown on the top right, next to `Extensions`. That will allow you to select a provider for the AI model to use. 
 
 **Important:**  
 - The AI extension sends your data to the configured provider.  
