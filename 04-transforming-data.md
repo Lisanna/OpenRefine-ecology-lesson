@@ -194,6 +194,73 @@ Full documentation on clustering can be found at the [OpenRefine Clustering Meth
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Using AI to cluster 
+
+Let's compare OpenRefine’s built-in clustering methods with AI-assisted interpretation of scientific names.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise
+
+You have already explored the `scientificName` column using:
+- Text facets
+- The **Cluster and edit** function (using the key collision method)
+
+Now you will use the AI extension to generate an alternative interpretation of these names and compare the results.
+
+1. Locate the `scientificName` column.
+2. Open the column drop-down menu and choose **Extract using AI**.
+3. Configure the extraction:
+  - Column: select `Add new` and name the new column `AI-interpret-scientificName`
+  - LLM Provider: `DTC2026`
+  - Response format: `Text`
+  - Describe what needs to be done: `Simplify this scientific name to its most likely canonical form. Remove any extra annotations. Return only the genus and species (for example: "Ammospermophilus harrisii"). If you are not confident, return the original value unchanged. Return only the name, with no extra text.`
+4. Use **Generate Preview** to inspect a few examples before clicking **OK**.
+5. Once the new column is generated, create a **Text Facet** on both:
+   - `scientificName`
+   - `AI-interpret-scientificName`
+
+Compare the two columns.
+
+Discuss with peers or write down your observations:
+- Where do OpenRefine’s clustering methods perform well?
+- Where does the AI output appear to perform better?
+- Where does the AI make mistakes or questionable assumptions?
+
+:::::::::::::::::::::::::  solution
+
+## Solution
+
+Your exact results will vary, but typical patterns include:
+
+### Where OpenRefine clustering works well
+- Detecting minor spelling variations  
+- Grouping values with small typographical differences  
+- Providing transparent, rule-based transformations  
+
+### Where AI interpretation often works well
+- Removing non-relevant information, like author names (e.g. `Homo sapiens Linnaeus, 1758` → `Homo sapiens`)
+- Simplifying complex annotations
+- Recognising structure in scientific names beyond character similarity
+
+### Common failure modes of the AI output
+- Overconfident corrections of rare or unfamiliar species names  
+- Changing valid names incorrectly  
+- Hallucinating plausible but incorrect species names  
+- Inconsistent treatment of subspecies or varieties  
+
+This comparison highlights an important difference between the two approaches:
+
+- OpenRefine’s clustering methods are **rule-based and transparent**, but limited to surface similarity.
+- AI-based interpretation can be **more flexible and semantically aware**, but also **less predictable and harder to audit**.
+
+In practice, AI-generated columns should always be treated as **proposed transformations** that must be validated using OpenRefine’s exploration tools (facets, filters, manual inspection), rather than as authoritative corrections.
+
+:::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Clustering can identify outliers in data and help us fix errors in bulk

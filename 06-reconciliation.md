@@ -106,7 +106,7 @@ If Wikidata does not appear in the list of reconciliation services, add the stan
 - Mouseover the options listed to see a preview of the entity suggested
   - For the cells with multiple options, choose one of the suggested values and click the double checkmark button to apply to all cells with the same value
 - Click the menu of the `country` column and select `Edit column` > `Add column based on this column...`
-- Enter "reconciled\_country" in the field for `New column name`
+- Enter `reconciled_country` in the field for `New column name`
 - In the `Expression` box, enter the following GREL: `cell.recon.best.name`
 - Click `OK`
 
@@ -123,6 +123,44 @@ This will create a new column with the reconciled names for the countries. Creat
 2. Several county names exist in multiple states. You can mouseover each option and find the correct one that matches the state.
 
 :::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise (Optional): Comparing AI interpretation with reconciliation
+
+In Episode 3, you used the AI extension to interpret country values using the prompt:
+
+> Convert this value to a standard country name in English (for example: "United States", "Brazil", "South Africa").  
+> If the value is ambiguous, not a country, or you are not confident, return "Unknown".  
+> Return only the country name, with no extra text.
+
+If you skipped that exercise, go back to Episode 3 now and generate the column `AI-interpret-country` before continuing.
+
+You should now have:
+- A column with authoritative reconciled values (e.g. `reconciled_country`)
+- A column with AI-generated values (e.g. `AI-interpret-country`)
+
+### Compare the two approaches
+
+1. Create **Text Facets** on both:
+   - `reconciled_country`
+   - `AI-interpret-country`
+2. Compare the results
+3. Although this specific example is a bit trivial, discuss with peers or write down your observations:
+   - Which approach seems more reliable? Which approach is easier to use?
+   - In which situations might AI be useful as a first pass, even if reconciliation is still needed?
+   - And viceversa? In which situation would you use AI in addition to the reconciliation?
+
+### Try a different AI prompt
+
+Now try generating a second AI column using a prompt that more closely resembles reconciliation, for example: 
+
+> If this value clearly refers to a real country, return the official English country name according to Wikidata.
+> If the value is ambiguous, incomplete, or could refer to more than one place, return "Unknown".
+
+Experiment with other prompts. What does the AI do if you ask it to "return the official English country name" according to a source that is unrelated, e.g. the [Encyclopedia of Life](https://eol.org/)?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
