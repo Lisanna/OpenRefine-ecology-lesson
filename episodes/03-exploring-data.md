@@ -169,7 +169,7 @@ This is the first time that you use an AI model in this lesson, so you will need
 - Label: `DTC2026`
 - Server URL: `https://dtc26-01-llm.embl.de/v1/chat/completions`
 - Model: `openai/gpt-oss-120b`
-- API Key: `dtc-2026-barcelona-heidelberg-carpentry`
+- API Key: *** (only shared during the course)
 - Max tokens: `256`
 
 Leave the rest of the fields empty / as default. 
